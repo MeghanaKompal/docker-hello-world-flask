@@ -37,3 +37,13 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: AzureRmWebAppDeployment@5
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Visual Studio Enterprise Subscription – MPN (c7c1a09b-2c70-4e71-89c9-ccc8715a79b0)'
+        appType: 'webAppContainer'
+        WebAppName: 'docker1'
+        DockerNamespace: 'devdocke.azurecr.io'
+        DockerRepository: 'meghanakompaldockerhelloworldflask'
+    
+    
